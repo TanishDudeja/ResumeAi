@@ -1,0 +1,30 @@
+.button {
+    border: var(--border-dark);
+    outline: none;
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+    color: #111;
+    box-shadow: var(--shadow-hard);
+
+    &.primary-button {
+        background-color: var(--accent-pink);
+        color: #111;
+    }
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: var(--shadow-hard-hover);
+    }
+
+    &:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px #111111;
+    }
+}

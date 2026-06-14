@@ -1,0 +1,117 @@
+@use "./style/button.scss";
+
+:root {
+  --bg-color: #f7f5f0;
+  --text-color: #2a2f2a;
+  --accent-yellow: #aec5b6; /* Soft sage green */
+  --accent-pink: #e5b5a5;   /* Soft peach/terracotta */
+  --accent-blue: #b8c0d8;   /* Soft slate blue */
+  --hero-bg: #d4dfd2;       /* Very soft sage for hero */
+  --grid-line: rgba(42, 47, 42, 0.1);
+  --border-color: #2a2f2a;
+  --shadow-color: #2a2f2a;
+  --card-bg: #ffffff;
+  --border-dark: 3px solid var(--border-color);
+  --shadow-hard: 4px 4px 0px var(--shadow-color);
+  --shadow-hard-hover: 6px 6px 0px var(--shadow-color);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1c1d1c;
+  --text-color: #efefef;
+  --card-bg: #242624;
+  --hero-bg: #1a1c1a;
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --border-color: #111111;
+  --shadow-color: #000000;
+  --accent-yellow: #4a6051;
+  --accent-pink: #7c574e;
+  --accent-blue: #48526b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+}
+
+/* Neo-brutalist utility classes */
+.card-brutal {
+    background: var(--card-bg);
+    border: var(--border-dark);
+    box-shadow: var(--shadow-hard);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.pill-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: border-color 0.3s;
+}
+
+.pill-yellow { background-color: var(--accent-yellow); color: #111; }
+.pill-pink { background-color: var(--accent-pink); color: #111; }
+.pill-blue { background-color: var(--accent-blue); color: #fff; }
+
+/* Floating Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: var(--border-dark);
+    box-shadow: var(--shadow-hard);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.2s ease-in-out;
+    color: var(--text-color);
+
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: var(--shadow-hard-hover);
+    }
+
+    &:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px var(--shadow-color);
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
