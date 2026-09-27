@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router'
 const Home = () => {
 
     const { loading, generateReport, reports, getReports, deleteReport } = useInterview()
-    const [ jobDescription, setJobDescription ] = useState("")
-    const [ selfDescription, setSelfDescription ] = useState("")
-    const [ selectedFile, setSelectedFile ] = useState(null)
+    const [jobDescription, setJobDescription] = useState("")
+    const [selfDescription, setSelfDescription] = useState("")
+    const [selectedFile, setSelectedFile] = useState(null)
     const resumeInputRef = useRef()
 
     const navigate = useNavigate()
@@ -19,7 +19,7 @@ const Home = () => {
     }, [])
 
     const handleGenerateReport = async () => {
-        const resumeFile = resumeInputRef.current.files[ 0 ]
+        const resumeFile = resumeInputRef.current.files[0]
         const data = await generateReport({ jobDescription, selfDescription, resumeFile })
         if (data?._id) {
             navigate(`/interview/${data._id}`)
@@ -44,7 +44,7 @@ const Home = () => {
                         <span className="pill-badge pill-yellow">A Career Strategy Studio</span>
                         <span className="pill-badge pill-blue">AI / Powered</span>
                     </div>
-                    <h1>Profiles that<br/>mean something.</h1>
+                    <h1>Profiles that<br />mean something.</h1>
                     <p>Let our AI analyze the job requirements and your unique profile to build a winning strategy that stands out from everyone else.</p>
                 </div>
             </header>
@@ -90,14 +90,14 @@ const Home = () => {
                                     <p className='dropzone__subtitle'>
                                         {selectedFile ? selectedFile : 'PDF (Max 5MB)'}
                                     </p>
-                                    <input 
-                                        ref={resumeInputRef} 
+                                    <input
+                                        ref={resumeInputRef}
                                         onChange={(e) => setSelectedFile(e.target.files[0]?.name)}
-                                        hidden 
-                                        type='file' 
-                                        id='resume' 
-                                        name='resume' 
-                                        accept='.pdf' 
+                                        hidden
+                                        type='file'
+                                        id='resume'
+                                        name='resume'
+                                        accept='.pdf'
                                     />
                                 </label>
                             </div>
@@ -147,8 +147,8 @@ const Home = () => {
                                         <p className='report-meta'>Generated on {new Date(report.createdAt).toLocaleDateString()}</p>
                                         <p className={`match-score ${report.matchScore >= 80 ? 'score--high' : report.matchScore >= 60 ? 'score--mid' : 'score--low'}`}>Match Score: {report.matchScore ?? 'N/A'}{report.matchScore ? '%' : ''}</p>
                                     </div>
-                                    <button 
-                                        className='delete-btn' 
+                                    <button
+                                        className='delete-btn'
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             deleteReport(report._id);

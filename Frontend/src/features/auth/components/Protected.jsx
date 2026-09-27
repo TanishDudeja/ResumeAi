@@ -1,23 +1,25 @@
 import { useAuth } from "../hooks/useAuth";
 import { Navigate } from "react-router";
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from "../auth.context";
 
-const Protected = ({children}) => {
-    
-    const {loading,user} = useAuth()
-    
+const Protected = ({ children }) => {
 
-    if(loading){
+    const context = useContext(AuthContext)
+    const { loading, user } = context
+
+
+    if (loading) {
         return (<main><h1>Loading...</h1></main>)
     }
 
-    if(!user){
+    if (!user) {
         return <Navigate to={'/login'} />
     }
 
-  return children
+    return children
 
-  
+
 }
 
 export default Protected

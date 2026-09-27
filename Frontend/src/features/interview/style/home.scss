@@ -18,9 +18,9 @@
     justify-content: center;
     border-bottom: var(--border-dark);
     background-color: var(--hero-bg);
-    background-image: 
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 30px 30px;
     background-position: center center;
 
@@ -337,9 +337,20 @@
                 display: inline-block;
                 width: max-content;
 
-                &.score--high { background-color: var(--accent-yellow); color: var(--text-color); }
-                &.score--mid { background-color: var(--bg-color); color: var(--text-color); }
-                &.score--low { background-color: var(--accent-pink); color: var(--text-color); }
+                &.score--high {
+                    background-color: var(--accent-yellow);
+                    color: var(--text-color);
+                }
+
+                &.score--mid {
+                    background-color: var(--bg-color);
+                    color: var(--text-color);
+                }
+
+                &.score--low {
+                    background-color: var(--accent-pink);
+                    color: var(--text-color);
+                }
             }
 
             .delete-btn {
